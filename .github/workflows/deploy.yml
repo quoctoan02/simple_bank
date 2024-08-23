@@ -28,6 +28,10 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Load secrets and save to app.env
+        run: |
+          echo "${{ secrets.APP_ENV }}" > app.env
+
       - name: Build, tag, and push docker image to Amazon ECR
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
