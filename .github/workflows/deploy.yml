@@ -31,6 +31,7 @@ jobs:
       - name: Load secrets and save to app.env
         run: |
           echo "${{ secrets.APP_ENV }}" > app.env
+          cat app.env
 
       - name: Build, tag, and push docker image to Amazon ECR
         env:
