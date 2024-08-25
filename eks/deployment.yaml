@@ -5,7 +5,7 @@ metadata:
   labels:
     app: simple-bank-api
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: simple-bank-api
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: simple-bank-api
-        image: 732008726294.dkr.ecr.ap-southeast-1.amazonaws.com/simple_bank:ea9edf7a402efb62577a2c91df57db32e4de29fa
+        image: 732008726294.dkr.ecr.ap-southeast-1.amazonaws.com/simple_bank:latest
         ports:
         - containerPort: 8080
