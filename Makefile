@@ -31,5 +31,8 @@ server:
 mock:
 	mockgen -package mockdb -destination db/mock/store.go simple_bank/db/sqlc Store
 
-.PHONY: postgres createdb dropdb migratedown migrateup sqlc test server mock migratedown1 migrateup1
+new_migration:
+	migrate create -ext sql -dir db/migration -seq $(name)
+
+.PHONY: postgres createdb dropdb migratedown migrateup sqlc test server mock migratedown1 migrateup1 new_migration
 
